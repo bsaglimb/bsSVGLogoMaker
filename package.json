@@ -3,6 +3,7 @@
   "description": "## User Story",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "commonjs",
   "directories": {
     "lib": "lib"
   },
@@ -15,7 +16,8 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
+  "dependencies":
+   {
     "inquirer": "^9.2.12"
   }
 }
