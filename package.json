@@ -1,5 +1,18 @@
 {
-  "dependencies": {
-    "jest": "^29.7.0"
-  }
+  "name": "bssvglogomaker",
+  "description": "## User Story",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "ts-node": "^10.9.2"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC"
 }
