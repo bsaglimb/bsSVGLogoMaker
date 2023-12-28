@@ -5,7 +5,7 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 
 // Importing classes from ./lib/shapes directory
-const { Triangle, Square, Circle } = require("./lib/shapes");
+const { Triangle, Square, Circle } = require("./lib/shapes.js");
 
 // Function writes the SVG file using user answers from inquirer prompts
 function writeToFile(fileName, answers) {
@@ -18,7 +18,7 @@ function writeToFile(fileName, answers) {
   // Takes user input for shape choice and inserts it into SVG file
   svgString += `${answers.shape}`;
 
-// Conditional check takes users input from choices array and then adds polygon properties and shape color to SVG string
+// Conditional check that takes users input from choices array and then adds polygon properties and shape color to SVG string
 let shapeChoice;
 if (answers.shape === "Triangle") {
   shapeChoice = new Triangle();
@@ -43,3 +43,4 @@ if (answers.shape === "Triangle") {
    err ? console.log(err) : console.log("Generated logo.svg");
  });
 }
+
