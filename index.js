@@ -44,3 +44,15 @@ if (answers.shape === "Triangle") {
  });
 }
 
+// This function utilizes inquirer .prompt to prompt the user to answer questions in the command line and save the user input
+function promptUser() {
+    inquirer
+      .prompt([
+        // Text prompt
+        {
+          type: "input",
+          message:
+            "What text would you like you logo to display? (Enter up to three characters)",
+          name: "text",
+        },
+        
