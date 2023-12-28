@@ -7,7 +7,7 @@ import('inquirer')
     const inquirer = inquirerModule.default || inquirerModule;
 
     // Importing classes from ./lib/shapes directory
-    const { Triangle, Square, Circle } = await import("./lib/shapes.mjs");
+    const { Triangle, Square, Circle } = await import("./lib/shapes.js");
 
     // Function writes the SVG file using user answers from inquirer prompts
     async function writeToFile(fileName, answers) {
