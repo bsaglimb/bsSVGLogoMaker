@@ -77,3 +77,17 @@ function promptUser() {
             name: "shapeBackgroundColor",
           },
         ])
+        .then((answers) => {
+            // Error handling for text prompt (user must enter 3 characters or less for logo to generate)
+            if (answers.text.length > 3) {
+              console.log("Must enter a value of no more than 3 characters");
+              promptUser();
+            } else {
+              // Calling write file function to generate SVG file
+              writeToFile("logo.svg", answers);
+            }
+          });
+      }
+      
+      // Calling promptUser function so inquirer prompts are executed when application is ran
+      promptUser();
