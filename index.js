@@ -1,13 +1,11 @@
-// Importing the 'fs' module
-import fs from 'fs/promises'; // Using fs/promises for promises-based API
+// Inquirer (node package manager) import
+const inquirer = require("inquirer");
 
-// Use dynamic import for the inquirer module
-import('inquirer')
-  .then(async (inquirerModule) => {
-    const inquirer = inquirerModule.default || inquirerModule;
+// File system module (node package manager) import
+const fs = require("fs");
 
-    // Importing classes from ./lib/shapes directory
-    const { Triangle, Square, Circle } = await import("./lib/shapes.js");
+// Importing classes from ./lib/shapes directory
+const { Triangle, Square, Circle } = require("./lib/shapes.js");
 
     // Function writes the SVG file using user answers from inquirer prompts
     async function writeToFile(fileName, answers) {
@@ -89,11 +87,5 @@ import('inquirer')
           }
         });
     }
-
-    // Calling promptUser function so inquirer prompts are executed when the application is run
-    promptUser();
-  })
-  .catch((error) => {
-    console.error('Error importing inquirer:', error);
-    process.exit(1);
-  });
+// Calling promptUser function so inquirer prompts fire off when application is ran
+promptUser();
