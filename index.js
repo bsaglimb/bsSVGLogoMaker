@@ -1,10 +1,10 @@
 // Inquirer (node package manager) import
 const inquirer = require("inquirer");
 
-// File system module (node package manager) import
+// File system module import
 const fs = require("fs");
 
-// Importing classes from ./lib/shapes directory
+// Importing classes from ./lib/shapes.js directory
 const { Triangle, Square, Circle } = require("./lib/shapes.js");
 
     // Function writes the SVG file using user answers from inquirer prompts
@@ -13,7 +13,7 @@ const { Triangle, Square, Circle } = require("./lib/shapes.js");
       let svgString = "";
       svgString =
         '<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">';
-      // <g> tag wraps <text> tag so that user font input layers on top of polygon and not behind it
+      // <g> tag wraps <text> tag so that user font input layers on top of the polygon and not behind it
       svgString += "<g>";
       // Takes user input for shape choice and inserts it into SVG file
       svgString += `${answers.shape}`;
@@ -38,12 +38,12 @@ const { Triangle, Square, Circle } = require("./lib/shapes.js");
       // Closing </svg> tag
       svgString += "</svg>";
 
-      // Using file system module to generate svg file, takes in file name given in the promptUser function, the svg string, and a ternary operator which handles logging any errors, or a "Generated logo.svg" message to the console  
+      // Generates svg file, takes in file name given in the promptUser function, the svg string, and a ternary operator which handles logging any errors, or a "Generated logo.svg" message to the console  
       await fs.writeFile(fileName, svgString);
       console.log("Generated logo.svg");
     }
 
-    // Function that utilizes inquirer .prompt to prompt the user to answer questions
+    // Function that prompts the user to answer questions
     function promptUser() {
       inquirer
         .prompt([
@@ -87,5 +87,5 @@ const { Triangle, Square, Circle } = require("./lib/shapes.js");
           }
         });
     }
-// Calling promptUser function so inquirer prompts fire off when application is ran
+// Calling promptUser function so inquirer prompts start when application is ran
 promptUser();
