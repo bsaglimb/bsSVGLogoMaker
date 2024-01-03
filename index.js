@@ -39,8 +39,9 @@ const { Triangle, Square, Circle } = require("./lib/shapes.js");
       svgString += "</svg>";
 
       // Generates svg file, takes in file name given in the promptUser function, the svg string, and a ternary operator which handles logging any errors, or a "Generated logo.svg" message to the console  
-      await fs.writeFile(fileName, svgString);
-      console.log("Generated logo.svg");
+      fs.writeFile(fileName, svgString, (err) => {
+        err ? console.log(err) : console.log("Generated logo.svg");
+      })
     }
 
     // Function that prompts the user to answer questions
