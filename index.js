@@ -13,12 +13,12 @@ const { Triangle, Square, Circle } = require("./lib/shapes.js");
       let svgString = "";
       svgString =
         '<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">';
-      // <g> tag wraps <text> tag so that user font input layers on top of the polygon and not behind it
+      // <g> tag wraps <text> tag so that user font input layers on top of the shape and not behind it
       svgString += "<g>";
-      // Takes user input for shape choice and inserts it into SVG file
+      // Takes user input for shape choice and inserts it into the SVG file
       svgString += `${answers.shape}`;
 
-      // Conditional check that takes users input from choices array and then adds polygon properties and shape color to SVG string
+      // Conditional check that takes users input from the choices array and then adds the shape properties and shape color to SVG string
       let shapeChoice;
       if (answers.shape === "Triangle") {
         shapeChoice = new Triangle();
@@ -31,14 +31,14 @@ const { Triangle, Square, Circle } = require("./lib/shapes.js");
         svgString += `<circle cx="150" cy="115" r="80" fill="${answers.shapeBackgroundColor}"/>`;
       }
 
-      // <text> tag gives rise to text alignment, text-content/text-color taken in from user prompt and gives default font size of "40"
+      // <text> tag creates a text alignment, text-content/text-color taken in from user prompt and gives default font size of "40"
       svgString += `<text x="150" y="130" text-anchor="middle" font-size="40" fill="${answers.textColor}">${answers.text}</text>`;
       // Closing </g> tag
       svgString += "</g>";
       // Closing </svg> tag
       svgString += "</svg>";
 
-      // Generates svg file, takes in file name given in the promptUser function, the svg string, and a ternary operator which handles logging any errors, or a "Generated logo.svg" message to the console  
+      // Generates svg file, takes in file name given in the promptUser function, the svg string, and a ternary operator which handles logging any errors, or generates a "Generated logo.svg" message to the console  
       fs.writeFile(fileName, svgString, (err) => {
         err ? console.log(err) : console.log("Generated logo.svg");
       })
@@ -83,10 +83,10 @@ const { Triangle, Square, Circle } = require("./lib/shapes.js");
             console.log("Must enter a value of no more than 3 characters");
             promptUser();
           } else {
-            // Calling write file function to generate SVG file
+            // Calls write file function to generate SVG file
             await writeToFile("logo.svg", answers);
           }
         });
     }
-// Calling promptUser function so inquirer prompts start when application is ran
+// Calls promptUser function so inquirer prompts start when application is ran
 promptUser();
